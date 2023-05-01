@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="public/layout">
+<div th:fragment="content">
+
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#">首页</a>
+            </li>
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#"></a>
+            </li>
+            <li><a href="#"></a></li>
+            <li class="active">编辑</li>
+        </ul><!-- /.breadcrumb -->
+    </div>
+
+    <div class="page-content">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- 返回栏 -->
+                <div class="j-back-bar">
+                    <div class="j-back-btn-group">
+                        <button class="btn btn-white btn-success btn-round j-step-backward">
+                            <i class="ace-icon fa fa-backward "></i>
+                            返回
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 表单 -->
+                <form class="layui-form" action="">
+                    <input type="hidden" name="id" th:value="${shopOrder.id}"/>
+                    
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">ID</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="id"
+                                    th:value="${shopOrder.id}"
+                                    required  lay-verify="required"
+                                   placeholder="请输入ID" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">主单id</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="parentId"
+                                    th:value="${shopOrder.parentId}"
+                                    required  lay-verify="required"
+                                   placeholder="请输入主单id" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">店铺id</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="shopId"
+                                    th:value="${shopOrder.shopId}"
+                                    required  lay-verify="required"
+                                   placeholder="请输入店铺id" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">房间id</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="roomId"
+                                    th:value="${shopOrder.roomId}"
+                                    required  lay-verify="required"
+                                   placeholder="请输入房间id" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户id</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="userId"
+                                    th:value="${shopOrder.userId}"
+                                    required  lay-verify="required"
+                                   placeholder="请输入用户id" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">预定开始时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="bookStartTime"
+                                    th:value="${shopOrder.bookStartTime}"
+                                    required  lay-verify="required"
+                                   placeholder="请输入预定开始时间" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">预定结束时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="bookEndTime"
+                                    th:value="${shopOrder.bookEndTime}"
+                                    required  lay-verify="required"
+                                   placeholder="请输入预定结束时间" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">0 - 普通订单， 10 - 续费单</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="orderType"
+                                    th:value="${shopOrder.orderType}"
+                                    required  lay-verify="required"
+                                   placeholder="请输入0 - 普通订单， 10 - 续费单" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">0 - 未支付， 10 - 支付完成，30 - 已取消</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="orderStatus"
+                                    th:value="${shopOrder.orderStatus}"
+                                    required  lay-verify="required"
+                                   placeholder="请输入0 - 未支付， 10 - 支付完成，30 - 已取消" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">下单时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="createTime"
+                                    th:value="${shopOrder.createTime}"
+                                    required  lay-verify="required"
+                                   placeholder="请输入下单时间" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="update-shoporder-filter">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.page-content -->
+</div>
+
+</html>
+
+<script th:src="${'/static/js/shoporder/update.js'}"></script>

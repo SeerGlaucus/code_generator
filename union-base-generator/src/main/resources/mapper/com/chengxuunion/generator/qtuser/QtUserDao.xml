@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chengxuunion.generator.business.qtuser.dao.QtUserDao">
+
+    <!-- 结果集 -->
+    <resultMap id="QtUserResultMap" type="com.chengxuunion.generator.business.qtuser.model.QtUser">
+    
+        <id column="id" property="id" />
+        
+        
+        <result column="nickname" property="nickname" />
+        
+        <result column="phone" property="phone" />
+        
+        <result column="avatar" property="avatar" />
+        
+        <result column="openid" property="openid" />
+        
+        <result column="pwd" property="pwd" />
+    
+    </resultMap>
+
+    <!-- 所有列名 -->
+    <sql id="ALL_COLUMN">
+        t.id,
+        t.nickname,
+        t.phone,
+        t.avatar,
+        t.openid,
+        t.pwd
+        
+    </sql>
+
+    <!-- 查询列表 -->
+    <select id="listQtUser" resultMap="QtUserResultMap">
+        SELECT
+            <include refid="ALL_COLUMN"/>
+        FROM
+            qt_user t
+    </select>
+
+    <!-- 根据主键查询单个对象 -->
+    <select id="getQtUser" resultMap="QtUserResultMap">
+        SELECT
+            <include refid="ALL_COLUMN"/>
+        FROM
+            qt_user t
+        WHERE
+            t.id = #{id}
+    </select>
+
+    <!-- 保存对象 -->
+    <insert id="saveQtUser" parameterType="com.chengxuunion.generator.business.qtuser.model.QtUser">
+        INSERT INTO
+            qt_user
+
+        <trim prefix=" ( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="id != null">id,</if>
+            <if test="nickname != null and nickname != ''">nickname,</if>
+            <if test="phone != null and phone != ''">phone,</if>
+            <if test="avatar != null and avatar != ''">avatar,</if>
+            <if test="openid != null and openid != ''">openid,</if>
+            <if test="pwd != null and pwd != ''">pwd,</if>
+        
+        </trim>
+        <trim prefix=" VALUES( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="id != null">#{id},</if>
+            <if test="nickname != null and nickname != ''">#{nickname},</if>
+            <if test="phone != null and phone != ''">#{phone},</if>
+            <if test="avatar != null and avatar != ''">#{avatar},</if>
+            <if test="openid != null and openid != ''">#{openid},</if>
+            <if test="pwd != null and pwd != ''">#{pwd},</if>
+        
+        </trim>
+    </insert>
+
+    <!-- 更新对象 -->
+    <update id="updateQtUser" parameterType="com.chengxuunion.generator.business.qtuser.model.QtUser">
+        UPDATE
+            qt_user
+        <set>
+        
+            
+            
+            <if test="nickname != null and nickname != ''">nickname = #{nickname},</if>
+            
+            
+            <if test="phone != null and phone != ''">phone = #{phone},</if>
+            
+            
+            <if test="avatar != null and avatar != ''">avatar = #{avatar},</if>
+            
+            
+            <if test="openid != null and openid != ''">openid = #{openid},</if>
+            
+            
+            <if test="pwd != null and pwd != ''">pwd = #{pwd},</if>
+            
+        
+        </set>
+        WHERE
+            id = #{id}
+    </update>
+
+    <!-- 根据主键删除 -->
+    <delete id="deleteQtUser">
+        DELETE FROM
+            qt_user
+        WHERE
+            id = #{id}
+    </delete>
+
+</mapper>

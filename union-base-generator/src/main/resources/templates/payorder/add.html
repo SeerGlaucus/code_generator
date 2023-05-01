@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="public/layout">
+<div th:fragment="content">
+
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#">首页</a>
+            </li>
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#"></a>
+            </li>
+            <li><a href="#"></a></li>
+            <li class="active">新增</li>
+        </ul><!-- /.breadcrumb -->
+    </div>
+
+    <div class="page-content">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- 返回栏 -->
+                <div class="j-back-bar">
+                    <div class="j-back-btn-group">
+                        <button class="btn btn-white btn-success btn-round j-step-backward">
+                            <i class="ace-icon fa fa-backward "></i>
+                            返回
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 表单 -->
+                <form class="layui-form" action="">
+
+                    
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">ID</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="id" required  lay-verify="required"
+                                   placeholder="请输入ID" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">订单id</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="orderId" required  lay-verify="required"
+                                   placeholder="请输入订单id" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">第三方支付id</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="payId" required  lay-verify="required"
+                                   placeholder="请输入第三方支付id" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">支付时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="payTime" required  lay-verify="required"
+                                   placeholder="请输入支付时间" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">支付金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="payMoney" required  lay-verify="required"
+                                   placeholder="请输入支付金额" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">0 - 未支付， 10 - 已支付， 20 - 申请退款中， 30 - 已退款</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="payOrderStatus" required  lay-verify="required"
+                                   placeholder="请输入0 - 未支付， 10 - 已支付， 20 - 申请退款中， 30 - 已退款" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="save-payorder-filter">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.page-content -->
+</div>
+
+</html>
+
+<script th:src="${'/static/js/payorder/add.js'}"></script>

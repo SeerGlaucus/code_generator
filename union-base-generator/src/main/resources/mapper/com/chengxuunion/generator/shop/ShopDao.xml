@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chengxuunion.generator.business.shop.dao.ShopDao">
+
+    <!-- 结果集 -->
+    <resultMap id="ShopResultMap" type="com.chengxuunion.generator.business.shop.model.Shop">
+    
+        <id column="id" property="id" />
+        
+        
+        <result column="shop_name" property="shopName" />
+        
+        <result column="main_pic" property="mainPic" />
+        
+        <result column="address" property="address" />
+        
+        <result column="coordinate" property="coordinate" />
+        
+        <result column="phone" property="phone" />
+        
+        <result column="biz_start_time" property="bizStartTime" />
+        
+        <result column="biz_end_time" property="bizEndTime" />
+        
+        <result column="room_total" property="roomTotal" />
+        
+        <result column="shop_status" property="shopStatus" />
+        
+        <result column="shop_searchable" property="shopSearchable" />
+        
+        <result column="shop_owner_name" property="shopOwnerName" />
+    
+    </resultMap>
+
+    <!-- 所有列名 -->
+    <sql id="ALL_COLUMN">
+        t.id,
+        t.shop_name,
+        t.main_pic,
+        t.address,
+        t.coordinate,
+        t.phone,
+        t.biz_start_time,
+        t.biz_end_time,
+        t.room_total,
+        t.shop_status,
+        t.shop_searchable,
+        t.shop_owner_name
+        
+    </sql>
+
+    <!-- 查询列表 -->
+    <select id="listShop" resultMap="ShopResultMap">
+        SELECT
+            <include refid="ALL_COLUMN"/>
+        FROM
+            shop t
+    </select>
+
+    <!-- 根据主键查询单个对象 -->
+    <select id="getShop" resultMap="ShopResultMap">
+        SELECT
+            <include refid="ALL_COLUMN"/>
+        FROM
+            shop t
+        WHERE
+            t.id = #{id}
+    </select>
+
+    <!-- 保存对象 -->
+    <insert id="saveShop" parameterType="com.chengxuunion.generator.business.shop.model.Shop">
+        INSERT INTO
+            shop
+
+        <trim prefix=" ( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="id != null">id,</if>
+            <if test="shopName != null and shopName != ''">shop_name,</if>
+            <if test="mainPic != null and mainPic != ''">main_pic,</if>
+            <if test="address != null and address != ''">address,</if>
+            <if test="coordinate != null and coordinate != ''">coordinate,</if>
+            <if test="phone != null and phone != ''">phone,</if>
+            <if test="bizStartTime != null">biz_start_time,</if>
+            <if test="bizEndTime != null">biz_end_time,</if>
+            <if test="roomTotal != null">room_total,</if>
+            <if test="shopStatus != null">shop_status,</if>
+            <if test="shopSearchable != null">shop_searchable,</if>
+            <if test="shopOwnerName != null and shopOwnerName != ''">shop_owner_name,</if>
+        
+        </trim>
+        <trim prefix=" VALUES( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="id != null">#{id},</if>
+            <if test="shopName != null and shopName != ''">#{shopName},</if>
+            <if test="mainPic != null and mainPic != ''">#{mainPic},</if>
+            <if test="address != null and address != ''">#{address},</if>
+            <if test="coordinate != null and coordinate != ''">#{coordinate},</if>
+            <if test="phone != null and phone != ''">#{phone},</if>
+            <if test="bizStartTime != null">#{bizStartTime},</if>
+            <if test="bizEndTime != null">#{bizEndTime},</if>
+            <if test="roomTotal != null">#{roomTotal},</if>
+            <if test="shopStatus != null">#{shopStatus},</if>
+            <if test="shopSearchable != null">#{shopSearchable},</if>
+            <if test="shopOwnerName != null and shopOwnerName != ''">#{shopOwnerName},</if>
+        
+        </trim>
+    </insert>
+
+    <!-- 更新对象 -->
+    <update id="updateShop" parameterType="com.chengxuunion.generator.business.shop.model.Shop">
+        UPDATE
+            shop
+        <set>
+        
+            
+            
+            <if test="shopName != null and shopName != ''">shop_name = #{shopName},</if>
+            
+            
+            <if test="mainPic != null and mainPic != ''">main_pic = #{mainPic},</if>
+            
+            
+            <if test="address != null and address != ''">address = #{address},</if>
+            
+            
+            <if test="coordinate != null and coordinate != ''">coordinate = #{coordinate},</if>
+            
+            
+            <if test="phone != null and phone != ''">phone = #{phone},</if>
+            
+            
+            <if test="bizStartTime != null">biz_start_time = #{bizStartTime},</if>
+            
+            
+            <if test="bizEndTime != null">biz_end_time = #{bizEndTime},</if>
+            
+            
+            <if test="roomTotal != null">room_total = #{roomTotal},</if>
+            
+            
+            <if test="shopStatus != null">shop_status = #{shopStatus},</if>
+            
+            
+            <if test="shopSearchable != null">shop_searchable = #{shopSearchable},</if>
+            
+            
+            <if test="shopOwnerName != null and shopOwnerName != ''">shop_owner_name = #{shopOwnerName},</if>
+            
+        
+        </set>
+        WHERE
+            id = #{id}
+    </update>
+
+    <!-- 根据主键删除 -->
+    <delete id="deleteShop">
+        DELETE FROM
+            shop
+        WHERE
+            id = #{id}
+    </delete>
+
+</mapper>

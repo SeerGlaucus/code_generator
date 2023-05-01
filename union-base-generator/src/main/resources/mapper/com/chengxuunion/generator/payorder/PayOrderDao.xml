@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chengxuunion.generator.business.payorder.dao.PayOrderDao">
+
+    <!-- 结果集 -->
+    <resultMap id="PayOrderResultMap" type="com.chengxuunion.generator.business.payorder.model.PayOrder">
+    
+        <id column="id" property="id" />
+        
+        
+        <result column="order_id" property="orderId" />
+        
+        <result column="pay_id" property="payId" />
+        
+        <result column="pay_time" property="payTime" />
+        
+        <result column="pay_money" property="payMoney" />
+        
+        <result column="pay_order_status" property="payOrderStatus" />
+    
+    </resultMap>
+
+    <!-- 所有列名 -->
+    <sql id="ALL_COLUMN">
+        t.id,
+        t.order_id,
+        t.pay_id,
+        t.pay_time,
+        t.pay_money,
+        t.pay_order_status
+        
+    </sql>
+
+    <!-- 查询列表 -->
+    <select id="listPayOrder" resultMap="PayOrderResultMap">
+        SELECT
+            <include refid="ALL_COLUMN"/>
+        FROM
+            pay_order t
+    </select>
+
+    <!-- 根据主键查询单个对象 -->
+    <select id="getPayOrder" resultMap="PayOrderResultMap">
+        SELECT
+            <include refid="ALL_COLUMN"/>
+        FROM
+            pay_order t
+        WHERE
+            t.id = #{id}
+    </select>
+
+    <!-- 保存对象 -->
+    <insert id="savePayOrder" parameterType="com.chengxuunion.generator.business.payorder.model.PayOrder">
+        INSERT INTO
+            pay_order
+
+        <trim prefix=" ( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="id != null">id,</if>
+            <if test="orderId != null">order_id,</if>
+            <if test="payId != null and payId != ''">pay_id,</if>
+            <if test="payTime != null">pay_time,</if>
+            <if test="payMoney != null">pay_money,</if>
+            <if test="payOrderStatus != null">pay_order_status,</if>
+        
+        </trim>
+        <trim prefix=" VALUES( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="id != null">#{id},</if>
+            <if test="orderId != null">#{orderId},</if>
+            <if test="payId != null and payId != ''">#{payId},</if>
+            <if test="payTime != null">#{payTime},</if>
+            <if test="payMoney != null">#{payMoney},</if>
+            <if test="payOrderStatus != null">#{payOrderStatus},</if>
+        
+        </trim>
+    </insert>
+
+    <!-- 更新对象 -->
+    <update id="updatePayOrder" parameterType="com.chengxuunion.generator.business.payorder.model.PayOrder">
+        UPDATE
+            pay_order
+        <set>
+        
+            
+            
+            <if test="orderId != null">order_id = #{orderId},</if>
+            
+            
+            <if test="payId != null and payId != ''">pay_id = #{payId},</if>
+            
+            
+            <if test="payTime != null">pay_time = #{payTime},</if>
+            
+            
+            <if test="payMoney != null">pay_money = #{payMoney},</if>
+            
+            
+            <if test="payOrderStatus != null">pay_order_status = #{payOrderStatus},</if>
+            
+        
+        </set>
+        WHERE
+            id = #{id}
+    </update>
+
+    <!-- 根据主键删除 -->
+    <delete id="deletePayOrder">
+        DELETE FROM
+            pay_order
+        WHERE
+            id = #{id}
+    </delete>
+
+</mapper>

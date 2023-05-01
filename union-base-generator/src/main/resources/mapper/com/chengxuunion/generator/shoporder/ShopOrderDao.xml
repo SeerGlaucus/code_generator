@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chengxuunion.generator.business.shoporder.dao.ShopOrderDao">
+
+    <!-- 结果集 -->
+    <resultMap id="ShopOrderResultMap" type="com.chengxuunion.generator.business.shoporder.model.ShopOrder">
+    
+        <id column="id" property="id" />
+        
+        
+        <result column="parent_id" property="parentId" />
+        
+        <result column="shop_id" property="shopId" />
+        
+        <result column="room_id" property="roomId" />
+        
+        <result column="user_id" property="userId" />
+        
+        <result column="book_start_time" property="bookStartTime" />
+        
+        <result column="book_end_time" property="bookEndTime" />
+        
+        <result column="order_type" property="orderType" />
+        
+        <result column="order_status" property="orderStatus" />
+        
+        <result column="create_time" property="createTime" />
+    
+    </resultMap>
+
+    <!-- 所有列名 -->
+    <sql id="ALL_COLUMN">
+        t.id,
+        t.parent_id,
+        t.shop_id,
+        t.room_id,
+        t.user_id,
+        t.book_start_time,
+        t.book_end_time,
+        t.order_type,
+        t.order_status,
+        t.create_time
+        
+    </sql>
+
+    <!-- 查询列表 -->
+    <select id="listShopOrder" resultMap="ShopOrderResultMap">
+        SELECT
+            <include refid="ALL_COLUMN"/>
+        FROM
+            shop_order t
+    </select>
+
+    <!-- 根据主键查询单个对象 -->
+    <select id="getShopOrder" resultMap="ShopOrderResultMap">
+        SELECT
+            <include refid="ALL_COLUMN"/>
+        FROM
+            shop_order t
+        WHERE
+            t.id = #{id}
+    </select>
+
+    <!-- 保存对象 -->
+    <insert id="saveShopOrder" parameterType="com.chengxuunion.generator.business.shoporder.model.ShopOrder">
+        INSERT INTO
+            shop_order
+
+        <trim prefix=" ( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="id != null">id,</if>
+            <if test="parentId != null">parent_id,</if>
+            <if test="shopId != null">shop_id,</if>
+            <if test="roomId != null">room_id,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="bookStartTime != null">book_start_time,</if>
+            <if test="bookEndTime != null">book_end_time,</if>
+            <if test="orderType != null">order_type,</if>
+            <if test="orderStatus != null">order_status,</if>
+            <if test="createTime != null">create_time,</if>
+        
+        </trim>
+        <trim prefix=" VALUES( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="id != null">#{id},</if>
+            <if test="parentId != null">#{parentId},</if>
+            <if test="shopId != null">#{shopId},</if>
+            <if test="roomId != null">#{roomId},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="bookStartTime != null">#{bookStartTime},</if>
+            <if test="bookEndTime != null">#{bookEndTime},</if>
+            <if test="orderType != null">#{orderType},</if>
+            <if test="orderStatus != null">#{orderStatus},</if>
+            <if test="createTime != null">#{createTime},</if>
+        
+        </trim>
+    </insert>
+
+    <!-- 更新对象 -->
+    <update id="updateShopOrder" parameterType="com.chengxuunion.generator.business.shoporder.model.ShopOrder">
+        UPDATE
+            shop_order
+        <set>
+        
+            
+            
+            <if test="parentId != null">parent_id = #{parentId},</if>
+            
+            
+            <if test="shopId != null">shop_id = #{shopId},</if>
+            
+            
+            <if test="roomId != null">room_id = #{roomId},</if>
+            
+            
+            <if test="userId != null">user_id = #{userId},</if>
+            
+            
+            <if test="bookStartTime != null">book_start_time = #{bookStartTime},</if>
+            
+            
+            <if test="bookEndTime != null">book_end_time = #{bookEndTime},</if>
+            
+            
+            <if test="orderType != null">order_type = #{orderType},</if>
+            
+            
+            <if test="orderStatus != null">order_status = #{orderStatus},</if>
+            
+            
+            <if test="createTime != null">create_time = #{createTime},</if>
+            
+        
+        </set>
+        WHERE
+            id = #{id}
+    </update>
+
+    <!-- 根据主键删除 -->
+    <delete id="deleteShopOrder">
+        DELETE FROM
+            shop_order
+        WHERE
+            id = #{id}
+    </delete>
+
+</mapper>
