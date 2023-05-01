@@ -10,21 +10,20 @@ $(document).ready(function() {
             filter: 'listDataTable01Filter',
             cellMinWidth: 80,//全局定义常规单元格的最小宽度，layui 2.2.1 新增
             height: 500,
-            url: '/shop/manager/list',
+            url: '/room/manager/list',
             cols: [[
                 
-                {field: 'id',  title: ''},
-                {field: 'shopName',  title: '店名'},
+                {field: 'id',  title: 'ID'},
+                {field: 'shopId',  title: '店铺id'},
+                {field: 'roomName',  title: '包间名'},
                 {field: 'mainPic',  title: '主图'},
-                {field: 'address',  title: '地址'},
-                {field: 'coordinate',  title: '经纬度'},
-                {field: 'phone',  title: '电话号'},
-                {field: 'bizStartTime',  title: '营业开始时间'},
-                {field: 'bizEndTime',  title: '营业结束时间'},
-                {field: 'roomTotal',  title: '包间总数'},
-                {field: 'shopStatus',  title: '0 - 初始状态， 10 - 已关店， 20 - 暂停营业， 30 - 营业中'},
-                {field: 'shopSearchable',  title: '0 - 不可搜索， 20 - 可搜索'},
-                {field: 'shopOwnerName',  title: '店主名'},
+                {field: 'tags',  title: '标签'},
+                {field: 'startBuyPrice',  title: '起购价'},
+                {field: 'startBuyTime',  title: '起购时长'},
+                {field: 'renewUnitPrice',  title: '单买、续费单位价格'},
+                {field: 'renewUnitTime',  title: '单买、续费单位时长'},
+                {field: 'roomStatus',  title: '0 - 已上架， 10 - 未上架'},
+                {field: 'roomSearchable',  title: '0 - 可搜索， 10 - 不可搜索'},
                 
                 {field: 'status',title: '状态', templet: '#statusTpl'},
                 {align:'center',title: '操作', templet: '#opt-col'}
@@ -41,8 +40,8 @@ $(document).ready(function() {
             return false;
         });
 
-        $("#add_shop_btn").click(function() {
-           window.location.href = '/shop/manager/add';
+        $("#add_room_btn").click(function() {
+           window.location.href = '/room/manager/add';
 
            return false;
         });
@@ -54,7 +53,7 @@ $(document).ready(function() {
                 status = 1;
             }
             $.ajax({
-                url: "/shop/manager/do-update",
+                url: "/room/manager/do-update",
                 type: "PUT",
                 data: {id: id, status: status},
                 dataType: "json",
@@ -75,13 +74,13 @@ $(document).ready(function() {
         table.on('tool(listDataTable01Filter)', function(obj) {
             var data = obj.data;
             if (obj.event === 'detail') {
-                window.location.href = "/shop/manager/detail/" + data.id;
+                window.location.href = "/room/manager/detail/" + data.id;
             } else if (obj.event === 'edit') {
-                window.location.href = "/shop/manager/update/" + data.id;
+                window.location.href = "/room/manager/update/" + data.id;
             } else if (obj.event === 'delete') {
                 layer.confirm("确定删除？", {icon: 3}, function(index) {
                     $.ajax({
-                        url: "/shop/manager/delete/" + data.id,
+                        url: "/room/manager/delete/" + data.id,
                         type: "DELETE",
                         dataType: "json",
                         success: function(data) {

@@ -5,7 +5,7 @@ $(document).ready(function() {
             form = layui.form,
             layer = layui.layer;
 
-        form.on('submit(update-shop-filter)', function(data){
+        form.on('submit(update-roomlock-filter)', function(data){
             if (data.field.switch == 'on') {
                 data.field.status = 1;
             } else {
@@ -13,14 +13,14 @@ $(document).ready(function() {
             }
 
             $.ajax({
-               url: '/shop/manager/do-update',
+               url: '/roomlock/manager/do-update',
                type: 'PUT',
                data: data.field,
                dataType: 'json',
                success: function(data) {
                    if (data.success) {
                        layer.msg("保存成功", {icon: 6});
-                       window.location.href = '/shop/manager';
+                       window.location.href = '/roomlock/manager';
                    } else {
                        layer.msg(data.message, {icon: 5});
                    }

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chengxuunion.generator.business.room.dao.RoomDao">
+
+    <!-- 结果集 -->
+    <resultMap id="RoomResultMap" type="com.chengxuunion.generator.business.room.model.Room">
+    
+        <id column="id" property="id" />
+        
+        
+        <result column="shop_id" property="shopId" />
+        
+        <result column="room_name" property="roomName" />
+        
+        <result column="main_pic" property="mainPic" />
+        
+        <result column="tags" property="tags" />
+        
+        <result column="start_buy_price" property="startBuyPrice" />
+        
+        <result column="start_buy_time" property="startBuyTime" />
+        
+        <result column="renew_unit_price" property="renewUnitPrice" />
+        
+        <result column="renew_unit_time" property="renewUnitTime" />
+        
+        <result column="room_status" property="roomStatus" />
+        
+        <result column="room_searchable" property="roomSearchable" />
+    
+    </resultMap>
+
+    <!-- 所有列名 -->
+    <sql id="ALL_COLUMN">
+        t.id,
+        t.shop_id,
+        t.room_name,
+        t.main_pic,
+        t.tags,
+        t.start_buy_price,
+        t.start_buy_time,
+        t.renew_unit_price,
+        t.renew_unit_time,
+        t.room_status,
+        t.room_searchable
+        
+    </sql>
+
+    <!-- 查询列表 -->
+    <select id="listRoom" resultMap="RoomResultMap">
+        SELECT
+            <include refid="ALL_COLUMN"/>
+        FROM
+            room t
+    </select>
+
+    <!-- 根据主键查询单个对象 -->
+    <select id="getRoom" resultMap="RoomResultMap">
+        SELECT
+            <include refid="ALL_COLUMN"/>
+        FROM
+            room t
+        WHERE
+            t.id = #{id}
+    </select>
+
+    <!-- 保存对象 -->
+    <insert id="saveRoom" parameterType="com.chengxuunion.generator.business.room.model.Room">
+        INSERT INTO
+            room
+
+        <trim prefix=" ( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="id != null">id,</if>
+            <if test="shopId != null">shop_id,</if>
+            <if test="roomName != null and roomName != ''">room_name,</if>
+            <if test="mainPic != null and mainPic != ''">main_pic,</if>
+            <if test="tags != null and tags != ''">tags,</if>
+            <if test="startBuyPrice != null">start_buy_price,</if>
+            <if test="startBuyTime != null">start_buy_time,</if>
+            <if test="renewUnitPrice != null">renew_unit_price,</if>
+            <if test="renewUnitTime != null">renew_unit_time,</if>
+            <if test="roomStatus != null">room_status,</if>
+            <if test="roomSearchable != null">room_searchable,</if>
+        
+        </trim>
+        <trim prefix=" VALUES( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="id != null">#{id},</if>
+            <if test="shopId != null">#{shopId},</if>
+            <if test="roomName != null and roomName != ''">#{roomName},</if>
+            <if test="mainPic != null and mainPic != ''">#{mainPic},</if>
+            <if test="tags != null and tags != ''">#{tags},</if>
+            <if test="startBuyPrice != null">#{startBuyPrice},</if>
+            <if test="startBuyTime != null">#{startBuyTime},</if>
+            <if test="renewUnitPrice != null">#{renewUnitPrice},</if>
+            <if test="renewUnitTime != null">#{renewUnitTime},</if>
+            <if test="roomStatus != null">#{roomStatus},</if>
+            <if test="roomSearchable != null">#{roomSearchable},</if>
+        
+        </trim>
+    </insert>
+
+    <!-- 更新对象 -->
+    <update id="updateRoom" parameterType="com.chengxuunion.generator.business.room.model.Room">
+        UPDATE
+            room
+        <set>
+        
+            
+            
+            <if test="shopId != null">shop_id = #{shopId},</if>
+            
+            
+            <if test="roomName != null and roomName != ''">room_name = #{roomName},</if>
+            
+            
+            <if test="mainPic != null and mainPic != ''">main_pic = #{mainPic},</if>
+            
+            
+            <if test="tags != null and tags != ''">tags = #{tags},</if>
+            
+            
+            <if test="startBuyPrice != null">start_buy_price = #{startBuyPrice},</if>
+            
+            
+            <if test="startBuyTime != null">start_buy_time = #{startBuyTime},</if>
+            
+            
+            <if test="renewUnitPrice != null">renew_unit_price = #{renewUnitPrice},</if>
+            
+            
+            <if test="renewUnitTime != null">renew_unit_time = #{renewUnitTime},</if>
+            
+            
+            <if test="roomStatus != null">room_status = #{roomStatus},</if>
+            
+            
+            <if test="roomSearchable != null">room_searchable = #{roomSearchable},</if>
+            
+        
+        </set>
+        WHERE
+            id = #{id}
+    </update>
+
+    <!-- 根据主键删除 -->
+    <delete id="deleteRoom">
+        DELETE FROM
+            room
+        WHERE
+            id = #{id}
+    </delete>
+
+</mapper>

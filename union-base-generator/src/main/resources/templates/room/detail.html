@@ -35,23 +35,34 @@
                 <form class="layui-form" action="">
                     
                     <div class="layui-form-item">
-                        <label class="layui-form-label"></label>
+                        <label class="layui-form-label">ID</label>
                         <div class="layui-input-block">
                             <input type="text" name="id"
-                                    th:value="${shop.id}"
+                                    th:value="${room.id}"
                                     required  lay-verify="required"
-                                    placeholder="请输入" autocomplete="off" class="layui-input"
+                                    placeholder="请输入ID" autocomplete="off" class="layui-input"
                                     readonly
                             >
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">店名</label>
+                        <label class="layui-form-label">店铺id</label>
                         <div class="layui-input-block">
-                            <input type="text" name="shopName"
-                                    th:value="${shop.shopName}"
+                            <input type="text" name="shopId"
+                                    th:value="${room.shopId}"
                                     required  lay-verify="required"
-                                    placeholder="请输入店名" autocomplete="off" class="layui-input"
+                                    placeholder="请输入店铺id" autocomplete="off" class="layui-input"
+                                    readonly
+                            >
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">包间名</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="roomName"
+                                    th:value="${room.roomName}"
+                                    required  lay-verify="required"
+                                    placeholder="请输入包间名" autocomplete="off" class="layui-input"
                                     readonly
                             >
                         </div>
@@ -60,7 +71,7 @@
                         <label class="layui-form-label">主图</label>
                         <div class="layui-input-block">
                             <input type="text" name="mainPic"
-                                    th:value="${shop.mainPic}"
+                                    th:value="${room.mainPic}"
                                     required  lay-verify="required"
                                     placeholder="请输入主图" autocomplete="off" class="layui-input"
                                     readonly
@@ -68,100 +79,78 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">地址</label>
+                        <label class="layui-form-label">标签</label>
                         <div class="layui-input-block">
-                            <input type="text" name="address"
-                                    th:value="${shop.address}"
+                            <input type="text" name="tags"
+                                    th:value="${room.tags}"
                                     required  lay-verify="required"
-                                    placeholder="请输入地址" autocomplete="off" class="layui-input"
+                                    placeholder="请输入标签" autocomplete="off" class="layui-input"
                                     readonly
                             >
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">经纬度</label>
+                        <label class="layui-form-label">起购价</label>
                         <div class="layui-input-block">
-                            <input type="text" name="coordinate"
-                                    th:value="${shop.coordinate}"
+                            <input type="text" name="startBuyPrice"
+                                    th:value="${room.startBuyPrice}"
                                     required  lay-verify="required"
-                                    placeholder="请输入经纬度" autocomplete="off" class="layui-input"
+                                    placeholder="请输入起购价" autocomplete="off" class="layui-input"
                                     readonly
                             >
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">电话号</label>
+                        <label class="layui-form-label">起购时长</label>
                         <div class="layui-input-block">
-                            <input type="text" name="phone"
-                                    th:value="${shop.phone}"
+                            <input type="text" name="startBuyTime"
+                                    th:value="${room.startBuyTime}"
                                     required  lay-verify="required"
-                                    placeholder="请输入电话号" autocomplete="off" class="layui-input"
+                                    placeholder="请输入起购时长" autocomplete="off" class="layui-input"
                                     readonly
                             >
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">营业开始时间</label>
+                        <label class="layui-form-label">单买、续费单位价格</label>
                         <div class="layui-input-block">
-                            <input type="text" name="bizStartTime"
-                                    th:value="${shop.bizStartTime}"
+                            <input type="text" name="renewUnitPrice"
+                                    th:value="${room.renewUnitPrice}"
                                     required  lay-verify="required"
-                                    placeholder="请输入营业开始时间" autocomplete="off" class="layui-input"
+                                    placeholder="请输入单买、续费单位价格" autocomplete="off" class="layui-input"
                                     readonly
                             >
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">营业结束时间</label>
+                        <label class="layui-form-label">单买、续费单位时长</label>
                         <div class="layui-input-block">
-                            <input type="text" name="bizEndTime"
-                                    th:value="${shop.bizEndTime}"
+                            <input type="text" name="renewUnitTime"
+                                    th:value="${room.renewUnitTime}"
                                     required  lay-verify="required"
-                                    placeholder="请输入营业结束时间" autocomplete="off" class="layui-input"
+                                    placeholder="请输入单买、续费单位时长" autocomplete="off" class="layui-input"
                                     readonly
                             >
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">包间总数</label>
+                        <label class="layui-form-label">0 - 已上架， 10 - 未上架</label>
                         <div class="layui-input-block">
-                            <input type="text" name="roomTotal"
-                                    th:value="${shop.roomTotal}"
+                            <input type="text" name="roomStatus"
+                                    th:value="${room.roomStatus}"
                                     required  lay-verify="required"
-                                    placeholder="请输入包间总数" autocomplete="off" class="layui-input"
+                                    placeholder="请输入0 - 已上架， 10 - 未上架" autocomplete="off" class="layui-input"
                                     readonly
                             >
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">0 - 初始状态， 10 - 已关店， 20 - 暂停营业， 30 - 营业中</label>
+                        <label class="layui-form-label">0 - 可搜索， 10 - 不可搜索</label>
                         <div class="layui-input-block">
-                            <input type="text" name="shopStatus"
-                                    th:value="${shop.shopStatus}"
+                            <input type="text" name="roomSearchable"
+                                    th:value="${room.roomSearchable}"
                                     required  lay-verify="required"
-                                    placeholder="请输入0 - 初始状态， 10 - 已关店， 20 - 暂停营业， 30 - 营业中" autocomplete="off" class="layui-input"
-                                    readonly
-                            >
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">0 - 不可搜索， 20 - 可搜索</label>
-                        <div class="layui-input-block">
-                            <input type="text" name="shopSearchable"
-                                    th:value="${shop.shopSearchable}"
-                                    required  lay-verify="required"
-                                    placeholder="请输入0 - 不可搜索， 20 - 可搜索" autocomplete="off" class="layui-input"
-                                    readonly
-                            >
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">店主名</label>
-                        <div class="layui-input-block">
-                            <input type="text" name="shopOwnerName"
-                                    th:value="${shop.shopOwnerName}"
-                                    required  lay-verify="required"
-                                    placeholder="请输入店主名" autocomplete="off" class="layui-input"
+                                    placeholder="请输入0 - 可搜索， 10 - 不可搜索" autocomplete="off" class="layui-input"
                                     readonly
                             >
                         </div>
@@ -176,4 +165,4 @@
 
 </html>
 
-<script th:src="${'/static/js/shop/detail.js'}"></script>
+<script th:src="${'/static/js/room/detail.js'}"></script>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chengxuunion.generator.business.roomlock.dao.RoomLockDao">
+
+    <!-- 结果集 -->
+    <resultMap id="RoomLockResultMap" type="com.chengxuunion.generator.business.roomlock.model.RoomLock">
+    
+        <id column="room_id" property="roomId" />
+        
+        <id column="lock_date" property="lockDate" />
+        
+        <id column="lock_slot" property="lockSlot" />
+        
+        
+        <result column="shop_id" property="shopId" />
+        
+        <result column="order_id" property="orderId" />
+    
+    </resultMap>
+
+    <!-- 所有列名 -->
+    <sql id="ALL_COLUMN">
+        t.room_id,
+        t.lock_date,
+        t.lock_slot,
+        t.shop_id,
+        t.order_id
+        
+    </sql>
+
+    <!-- 查询列表 -->
+    <select id="listRoomLock" resultMap="RoomLockResultMap">
+        SELECT
+            <include refid="ALL_COLUMN"/>
+        FROM
+            room_lock t
+    </select>
+
+    <!-- 保存对象 -->
+    <insert id="saveRoomLock" parameterType="com.chengxuunion.generator.business.roomlock.model.RoomLock">
+        INSERT INTO
+            room_lock
+
+        <trim prefix=" ( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="roomId != null">room_id,</if>
+            <if test="lockDate != null">lock_date,</if>
+            <if test="lockSlot != null">lock_slot,</if>
+            <if test="shopId != null">shop_id,</if>
+            <if test="orderId != null">order_id,</if>
+        
+        </trim>
+        <trim prefix=" VALUES( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="roomId != null">#{roomId},</if>
+            <if test="lockDate != null">#{lockDate},</if>
+            <if test="lockSlot != null">#{lockSlot},</if>
+            <if test="shopId != null">#{shopId},</if>
+            <if test="orderId != null">#{orderId},</if>
+        
+        </trim>
+    </insert>
+
+    <!-- 更新对象 -->
+    <update id="updateRoomLock" parameterType="com.chengxuunion.generator.business.roomlock.model.RoomLock">
+        UPDATE
+            room_lock
+        <set>
+        
+            
+            
+            
+            
+            <if test="shopId != null">shop_id = #{shopId},</if>
+            
+            
+            <if test="orderId != null">order_id = #{orderId},</if>
+            
+        
+        </set>
+        WHERE
+            room_id = #{roomId}lock_date = #{lockDate}lock_slot = #{lockSlot}
+    </update>
+
+</mapper>
