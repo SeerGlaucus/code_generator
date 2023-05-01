@@ -37,7 +37,7 @@ public class RoomLock {
      * 订单id
      * 是否允许为空：NO
      */
-    private Integer orderId;
+    private Long orderId;
 
     
 
@@ -74,11 +74,11 @@ public class RoomLock {
         this.shopId = shopId;
     }
 
-    public Integer getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
