@@ -4,7 +4,8 @@
 
     <!-- 结果集 -->
     <resultMap id="RoomLockResultMap" type="com.chengxuunion.generator.business.roomlock.model.RoomLock">
-    
+        <id column="id" property="id" />
+
         <id column="room_id" property="roomId" />
         
         <id column="lock_date" property="lockDate" />
@@ -20,6 +21,7 @@
 
     <!-- 所有列名 -->
     <sql id="ALL_COLUMN">
+        t.id,
         t.room_id,
         t.lock_date,
         t.lock_slot,
@@ -34,6 +36,16 @@
             <include refid="ALL_COLUMN"/>
         FROM
             room_lock t
+    </select>
+
+    <!-- 根据主键查询单个对象 -->
+    <select id="getRoomLock" resultMap="RoomLockResultMap">
+        SELECT
+        <include refid="ALL_COLUMN"/>
+        FROM
+        room_lock t
+        WHERE
+        t.id = #{id}
     </select>
 
     <!-- 保存对象 -->
@@ -75,11 +87,25 @@
             
             
             <if test="orderId != null">order_id = #{orderId},</if>
-            
-        
+
+            <if test="roomId != null">room_id = #{roomId},</if>
+
+            <if test="lockDate != null">lock_date = #{lockDate},</if>
+
+            <if test="lockSlot != null">lock_slot = #{lockSlot},</if>
+
+
         </set>
         WHERE
-            room_id = #{roomId}lock_date = #{lockDate}lock_slot = #{lockSlot}
+            id = #{id}
     </update>
+
+    <!-- 根据主键删除 -->
+    <delete id="deleteRoomLock">
+        DELETE FROM
+            room_lock
+        WHERE
+            id = #{id}
+    </delete>
 
 </mapper>

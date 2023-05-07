@@ -8,7 +8,13 @@ package com.chengxuunion.generator.business.roomlock.model;
  */
 public class RoomLock {
 
-    
+
+    /**
+     * 房间id
+     * 是否允许为空：NO
+     */
+    private Long id;
+
     /**
      * 房间id
      * 是否允许为空：NO
@@ -82,6 +88,11 @@ public class RoomLock {
         this.orderId = orderId;
     }
 
-    
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

@@ -1,5 +1,6 @@
 package com.chengxuunion.generator.business.roomlock.service;
 
+import com.chengxuunion.generator.business.room.model.Room;
 import com.chengxuunion.generator.business.roomlock.model.RoomLock;
 import com.chengxuunion.generator.business.roomlock.model.request.RoomLockPageParam;
 import com.chengxuunion.generator.common.model.PageResult;
@@ -22,6 +23,14 @@ public interface RoomLockService {
     PageResult<RoomLock> listRoomLockPage(RoomLockPageParam roomLockPageParam);
 
     /**
+     * 根据主键查询单个对象
+     *
+     * @param id 主键
+     * @return  单个对象
+     */
+    RoomLock getRoomLock(Long id);
+
+    /**
      * 保存对象
      *
      * @param roomLock 对象
@@ -36,5 +45,13 @@ public interface RoomLockService {
      * @return  更新影响的记录数
      */
     int updateRoomLock(RoomLock roomLock);
+
+    /**
+     * 根据主键删除
+     *
+     * @param id 主键
+     * @return  删除影响的记录数
+     */
+    int deleteRoomLock(Long id);
 
 }

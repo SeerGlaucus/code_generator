@@ -1,5 +1,6 @@
 package com.chengxuunion.generator.business.roomlock.dao;
 
+import com.chengxuunion.generator.business.room.model.Room;
 import com.chengxuunion.generator.business.roomlock.model.RoomLock;
 import com.chengxuunion.generator.business.roomlock.model.request.RoomLockPageParam;
 
@@ -41,4 +42,19 @@ public interface RoomLockDao {
      */
     int updateRoomLock(RoomLock roomLock);
 
+    /**
+     * 根据主键查询单个对象
+     *
+     * @param id 主键
+     * @return  单个对象
+     */
+    RoomLock getRoomLock(@Param("id") Long id);
+
+    /**
+     * 根据主键删除
+     *
+     * @param id 主键
+     * @return  删除影响的记录数
+     */
+    int deleteRoomLock(@Param("id") Long id);
 }

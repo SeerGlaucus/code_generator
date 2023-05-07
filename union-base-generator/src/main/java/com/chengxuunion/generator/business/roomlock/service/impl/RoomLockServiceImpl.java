@@ -36,6 +36,11 @@ public class RoomLockServiceImpl implements RoomLockService {
         return new PageResult<RoomLock>(roomLockPageParam, pageInfo.getTotal(), roomLockList);
     }
 
+    @Override
+    public RoomLock getRoomLock(Long id) {
+        return roomLockDao.getRoomLock(id);
+    }
+
     /**
      * 保存对象
      *
@@ -56,6 +61,11 @@ public class RoomLockServiceImpl implements RoomLockService {
     @Override
     public int updateRoomLock(RoomLock roomLock) {
         return  roomLockDao.updateRoomLock(roomLock);
+    }
+
+    @Override
+    public int deleteRoomLock(Long id) {
+        return roomLockDao.deleteRoomLock(id);
     }
 
 }

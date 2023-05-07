@@ -1,5 +1,6 @@
 package com.chengxuunion.generator.business.roomlock.controller;
 
+import com.chengxuunion.generator.business.room.model.Room;
 import com.chengxuunion.generator.business.roomlock.model.RoomLock;
 import com.chengxuunion.generator.business.roomlock.model.request.RoomLockPageParam;
 import com.chengxuunion.generator.business.roomlock.service.RoomLockService;
@@ -44,10 +45,30 @@ public class RoomLockController extends BaseController {
         return roomLockService.saveRoomLock(roomLock);
     }
 
+    @GetMapping("/update/{id}")
+    public String update(Model model, @PathVariable("id") Long id) {
+        RoomLock roomLock = roomLockService.getRoomLock(id);
+        model.addAttribute("roomLock", roomLock);
+        return "/roomlock/update";
+    }
+
     @PutMapping("/do-update")
     @ResponseBody
     public Object doUpdate(RoomLock roomLock) {
         return roomLockService.updateRoomLock(roomLock);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    @ResponseBody
+    public Object doDelete(@PathVariable("id") Long id) {
+        return roomLockService.deleteRoomLock(id);
+    }
+
+    @GetMapping("/detail/{id}")
+    public String detail(Model model, @PathVariable("id") Long id) {
+        RoomLock roomLock =  roomLockService.getRoomLock(id);
+        model.addAttribute("roomLock", roomLock);
+        return "/roomlock/detail";
     }
 
 }
