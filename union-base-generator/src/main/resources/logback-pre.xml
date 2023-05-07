@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <springProperty scope="context" name="LOG_DIR" source="logging.path"/>
-    <springProperty scope="context" name="LEVEL" source="logging.level"/>
+    <springProperty scope="context" name="LEVEL" source="level.root"/>
     <springProperty scope="context" name="APP_NAME" source="spring.application.name"/>
     <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) [%blue(%t)] %yellow(%C{35}): %msg%n%throwable" />
     <!-- %m输出的信息,%p日志级别,%t线程名,%d日期,%c类的全名,%i索引【从数字0开始递增】,,, -->
@@ -40,8 +40,8 @@
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>${LEVEL}</level>
-<!--            <onMatch>ACCEPT</onMatch>-->
-<!--            <onMismatch>DENY</onMismatch>-->
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
     <appender name="fileServiceLogError" class="ch.qos.logback.core.rolling.RollingFileAppender">
