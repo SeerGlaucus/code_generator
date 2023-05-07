@@ -97,7 +97,9 @@ public class UserServiceImpl implements UserService {
         }
 
         user.setHeadPhoto(headPhotoFilePath);
-        user.setPassword(SecurityUtils.encryptMD5(defaultPassword));
+
+        String encryptMD5 = SecurityUtils.encryptMD5(user.getPassword());
+        user.setPassword(encryptMD5);
 
         return userDao.saveUser(user);
     }

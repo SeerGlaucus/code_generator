@@ -1,3 +1,10 @@
+# 最高权限账号(唯一)
+admin/admin@gxqps.com/admin123456
+# 平台运营账号(平台下多个)
+operation1/operation1@gxqps.com/aoperation1
+# 租户运营账号（每租户多个）
+t0001/t0001@gxqps.com/gxlt0001
+
 # 代码生成平台
 根据自定义的代码模版生成代码，支持两种模版引擎编写的模版：Thymeleaf、FreeMarker  
 项目演示地址：[代码生成平台](http://47.106.230.123:84) 账号/密码:游盼盼/123456   
