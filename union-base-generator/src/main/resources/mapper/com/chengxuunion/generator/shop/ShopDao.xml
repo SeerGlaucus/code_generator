@@ -29,7 +29,9 @@
         <result column="shop_searchable" property="shopSearchable" />
         
         <result column="shop_owner_name" property="shopOwnerName" />
-    
+
+        <result column="device_id" property="deviceId" />
+
     </resultMap>
 
     <!-- 所有列名 -->
@@ -45,7 +47,8 @@
         t.room_total,
         t.shop_status,
         t.shop_searchable,
-        t.shop_owner_name
+        t.shop_owner_name,
+        t.device_id
         
     </sql>
 
@@ -86,7 +89,8 @@
             <if test="shopStatus != null">shop_status,</if>
             <if test="shopSearchable != null">shop_searchable,</if>
             <if test="shopOwnerName != null and shopOwnerName != ''">shop_owner_name,</if>
-        
+            <if test="deviceId != null and deviceId != ''">device_id,</if>
+
         </trim>
         <trim prefix=" VALUES( " suffix=" ) "  suffixOverrides=",">
         
@@ -102,7 +106,8 @@
             <if test="shopStatus != null">#{shopStatus},</if>
             <if test="shopSearchable != null">#{shopSearchable},</if>
             <if test="shopOwnerName != null and shopOwnerName != ''">#{shopOwnerName},</if>
-        
+            <if test="deviceId != null and deviceId != ''">#{deviceId},</if>
+
         </trim>
     </insert>
 
@@ -145,8 +150,9 @@
             
             
             <if test="shopOwnerName != null and shopOwnerName != ''">shop_owner_name = #{shopOwnerName},</if>
-            
-        
+
+            <if test="deviceId != null and deviceId != ''">device_id = #{deviceId},</if>
+
         </set>
         WHERE
             id = #{id}

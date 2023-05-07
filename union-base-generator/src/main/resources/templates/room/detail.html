@@ -134,7 +134,7 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">0 - 已上架， 10 - 未上架</label>
+                        <label class="layui-form-label">营业状态</label>
                         <div class="layui-input-block">
                             <input type="text" name="roomStatus"
                                     th:value="${room.roomStatus}"
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">0 - 可搜索， 10 - 不可搜索</label>
+                        <label class="layui-form-label">可搜索状态</label>
                         <div class="layui-input-block">
                             <input type="text" name="roomSearchable"
                                     th:value="${room.roomSearchable}"
@@ -155,7 +155,16 @@
                             >
                         </div>
                     </div>
-                    
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">设备id</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="deviceId"
+                                   th:value="${room.deviceId}"
+                                   placeholder="设备id" autocomplete="off" class="layui-input"
+                                   readonly
+                            >
+                        </div>
+                    </div>
                 </form>
 
             </div><!-- /.col -->

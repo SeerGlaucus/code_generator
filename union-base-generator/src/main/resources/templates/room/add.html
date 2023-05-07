@@ -99,20 +99,27 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">0 - 已上架， 10 - 未上架</label>
+                        <label class="layui-form-label">营业状态</label>
                         <div class="layui-input-block">
                             <input type="text" name="roomStatus" required  lay-verify="required"
                                    placeholder="请输入0 - 已上架， 10 - 未上架" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">0 - 可搜索， 10 - 不可搜索</label>
+                        <label class="layui-form-label">可搜索状态</label>
                         <div class="layui-input-block">
                             <input type="text" name="roomSearchable" required  lay-verify="required"
                                    placeholder="请输入0 - 可搜索， 10 - 不可搜索" autocomplete="off" class="layui-input">
                         </div>
                     </div>
-                    
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">设备id</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="deviceId"
+                                   placeholder="本房间绑定的设备id" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
                     <div class="layui-form-item">
                         <div class="layui-input-block">
                             <button class="layui-btn" lay-submit lay-filter="save-room-filter">保存</button>

@@ -76,6 +76,11 @@ public class Room {
      * 是否允许为空：NO
      */
     private Integer roomSearchable;
+    /**
+     * 设备id
+     * 是否允许为空：YES
+     */
+    private String deviceId;
 
     
 
@@ -168,6 +173,11 @@ public class Room {
         this.roomSearchable = roomSearchable;
     }
 
-    
+    public String getDeviceId() {
+        return deviceId;
+    }
 
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
 }

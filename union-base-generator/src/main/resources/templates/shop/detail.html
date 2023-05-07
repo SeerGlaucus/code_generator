@@ -134,7 +134,7 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">0 - 营业中， 10 - 已关店， 20 - 暂停营业</label>
+                        <label class="layui-form-label">营业状态</label>
                         <div class="layui-input-block">
                             <input type="text" name="shopStatus"
                                     th:value="${shop.shopStatus}"
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">0 - 不可搜索， 20 - 可搜索</label>
+                        <label class="layui-form-label">搜索状态</label>
                         <div class="layui-input-block">
                             <input type="text" name="shopSearchable"
                                     th:value="${shop.shopSearchable}"
@@ -166,7 +166,17 @@
                             >
                         </div>
                     </div>
-                    
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">设备id</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="deviceId"
+                                   th:value="${shop.deviceId}"
+                                   required  lay-verify="required"
+                                   placeholder="请输入设备id" autocomplete="off" class="layui-input"
+                                   readonly
+                            >
+                        </div>
+                    </div>
                 </form>
 
             </div><!-- /.col -->

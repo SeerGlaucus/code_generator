@@ -83,6 +83,12 @@ public class Shop {
      */
     private String shopOwnerName;
 
+    /**
+     * 设备id
+     * 是否允许为空：YES
+     */
+    private String deviceId;
+
     
 
     
@@ -182,6 +188,11 @@ public class Shop {
         this.shopOwnerName = shopOwnerName;
     }
 
-    
+    public String getDeviceId() {
+        return deviceId;
+    }
 
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
 }
