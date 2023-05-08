@@ -22,8 +22,8 @@ $(document).ready(function() {
                 {field: 'bizStartTime',  title: '营业开始时间'},
                 {field: 'bizEndTime',  title: '营业结束时间'},
                 {field: 'roomTotal',  title: '包间总数'},
-                {field: 'shopStatus',  title: '0 - 营业中， 10 - 已关店， 20 - 暂停营业'},
-                {field: 'shopSearchable',  title: '0 - 不可搜索， 20 - 可搜索'},
+                {field: 'shopStatus',  title: '营业状态'},
+                {field: 'shopSearchable',  title: '搜索状态'},
                 {field: 'shopOwnerName',  title: '店主名'},
                 
                 {field: 'status',title: '状态', templet: '#statusTpl'},

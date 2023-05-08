@@ -22,8 +22,8 @@ $(document).ready(function() {
                 {field: 'startBuyTime',  title: '起购时长'},
                 {field: 'renewUnitPrice',  title: '单买、续费单位价格'},
                 {field: 'renewUnitTime',  title: '单买、续费单位时长'},
-                {field: 'roomStatus',  title: '0 - 已上架， 10 - 未上架'},
-                {field: 'roomSearchable',  title: '0 - 可搜索， 10 - 不可搜索'},
+                {field: 'roomStatus',  title: '上架状态'},
+                {field: 'roomSearchable',  title: '搜索状态'},
                 
                 {field: 'status',title: '状态', templet: '#statusTpl'},
                 {align:'center',title: '操作', templet: '#opt-col'}
