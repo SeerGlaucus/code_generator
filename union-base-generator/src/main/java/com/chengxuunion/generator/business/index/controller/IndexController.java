@@ -28,6 +28,7 @@ public class IndexController extends BaseController {
 
     @GetMapping
     public String index() {
+        SessionUtils.setValue(Constants.LANGUAGE, "zh_CN");
         return "index";
     }
 
