@@ -25,7 +25,7 @@ public class RoomLockController extends BaseController {
 
     @GetMapping
     public String index() {
-        return "/roomlock/index";
+        return "roomlock/index";
     }
 
     @GetMapping("/list")
@@ -36,7 +36,7 @@ public class RoomLockController extends BaseController {
 
     @GetMapping("/add")
     public String add() {
-        return "/roomlock/add";
+        return "roomlock/add";
     }
 
     @PostMapping("/do-add")
@@ -49,7 +49,7 @@ public class RoomLockController extends BaseController {
     public String update(Model model, @PathVariable("id") Long id) {
         RoomLock roomLock = roomLockService.getRoomLock(id);
         model.addAttribute("roomLock", roomLock);
-        return "/roomlock/update";
+        return "roomlock/update";
     }
 
     @PutMapping("/do-update")
@@ -68,7 +68,7 @@ public class RoomLockController extends BaseController {
     public String detail(Model model, @PathVariable("id") Long id) {
         RoomLock roomLock =  roomLockService.getRoomLock(id);
         model.addAttribute("roomLock", roomLock);
-        return "/roomlock/detail";
+        return "roomlock/detail";
     }
 
 }

@@ -25,7 +25,7 @@ public class ShopOrderController extends BaseController {
 
     @GetMapping
     public String index() {
-        return "/shoporder/index";
+        return "shoporder/index";
     }
 
     @GetMapping("/list")
@@ -36,7 +36,7 @@ public class ShopOrderController extends BaseController {
 
     @GetMapping("/add")
     public String add() {
-        return "/shoporder/add";
+        return "shoporder/add";
     }
 
     @PostMapping("/do-add")
@@ -49,7 +49,7 @@ public class ShopOrderController extends BaseController {
     public String update(Model model, @PathVariable("id") Long id) {
         ShopOrder shopOrder = shopOrderService.getShopOrder(id);
         model.addAttribute("shopOrder", shopOrder);
-        return "/shoporder/update";
+        return "shoporder/update";
     }
 
     @PutMapping("/do-update")
@@ -68,7 +68,7 @@ public class ShopOrderController extends BaseController {
     public String detail(Model model, @PathVariable("id") Long id) {
         ShopOrder shopOrder = shopOrderService.getShopOrder(id);
         model.addAttribute("shopOrder", shopOrder);
-        return "/shoporder/detail";
+        return "shoporder/detail";
     }
 
 }

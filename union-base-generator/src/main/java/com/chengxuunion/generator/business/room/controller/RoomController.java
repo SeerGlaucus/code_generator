@@ -25,7 +25,7 @@ public class RoomController extends BaseController {
 
     @GetMapping
     public String index() {
-        return "/room/index";
+        return "room/index";
     }
 
     @GetMapping("/list")
@@ -36,7 +36,7 @@ public class RoomController extends BaseController {
 
     @GetMapping("/add")
     public String add() {
-        return "/room/add";
+        return "room/add";
     }
 
     @PostMapping("/do-add")
@@ -49,7 +49,7 @@ public class RoomController extends BaseController {
     public String update(Model model, @PathVariable("id") Long id) {
         Room room = roomService.getRoom(id);
         model.addAttribute("room", room);
-        return "/room/update";
+        return "room/update";
     }
 
     @PutMapping("/do-update")
@@ -68,7 +68,7 @@ public class RoomController extends BaseController {
     public String detail(Model model, @PathVariable("id") Long id) {
         Room room = roomService.getRoom(id);
         model.addAttribute("room", room);
-        return "/room/detail";
+        return "room/detail";
     }
 
 }

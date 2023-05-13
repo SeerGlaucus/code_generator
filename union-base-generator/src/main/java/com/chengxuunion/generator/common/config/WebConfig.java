@@ -93,7 +93,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
                     language = locale.toString();
                     if (!StringUtils.isEquals("zh_CN", language)
                             && !StringUtils.isEquals("en_US", language)) {
-                        SessionUtils.setValue(Constants.LANGUAGE, "en_US");
+                        SessionUtils.setValue(Constants.LANGUAGE, "zh_CN");
                     } else {
                         SessionUtils.setValue(Constants.LANGUAGE, language);
                     }

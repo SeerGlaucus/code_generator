@@ -25,7 +25,7 @@ public class PayOrderController extends BaseController {
 
     @GetMapping
     public String index() {
-        return "/payorder/index";
+        return "payorder/index";
     }
 
     @GetMapping("/list")
@@ -36,7 +36,7 @@ public class PayOrderController extends BaseController {
 
     @GetMapping("/add")
     public String add() {
-        return "/payorder/add";
+        return "payorder/add";
     }
 
     @PostMapping("/do-add")
@@ -49,7 +49,7 @@ public class PayOrderController extends BaseController {
     public String update(Model model, @PathVariable("id") Long id) {
         PayOrder payOrder = payOrderService.getPayOrder(id);
         model.addAttribute("payOrder", payOrder);
-        return "/payorder/update";
+        return "payorder/update";
     }
 
     @PutMapping("/do-update")
@@ -68,7 +68,7 @@ public class PayOrderController extends BaseController {
     public String detail(Model model, @PathVariable("id") Long id) {
         PayOrder payOrder = payOrderService.getPayOrder(id);
         model.addAttribute("payOrder", payOrder);
-        return "/payorder/detail";
+        return "payorder/detail";
     }
 
 }
